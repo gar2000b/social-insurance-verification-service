@@ -18,7 +18,11 @@ public class SocialInsuranceVerificationController {
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "text/plain", value = "/verifySin")
 	@ResponseBody
 	public ResponseEntity<String> verifySin(@RequestBody Map<String, String> customer) {
-		System.out.println("\nVerifying Social Insurance for customer: " + customer.get("CustomerId"));
+		System.out.println("\nVerifying Social Insurance for customer: " + customer);
+		
+		String sin = customer.get("SIN");
+		
+		
 		return new ResponseEntity<>("SIN Verified for customer: " + customer.get("CustomerId"), HttpStatus.OK);
 	}
 }
